@@ -6,7 +6,7 @@
 /*   By: mosakura <mosakura@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 13:12:26 by mosakura          #+#    #+#             */
-/*   Updated: 2026/05/14 13:55:59 by mosakura         ###   ########.fr       */
+/*   Updated: 2026/05/14 15:23:16 by mosakura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ static const char input_validation(const char *str)
     len = 0;
     while (is_space(*str))
         str++;
-    while (str == '+')
+    if (str == '+')
         str++;
+    else if()
+
     
 }
