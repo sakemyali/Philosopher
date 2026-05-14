@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosakura <mosakura@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/12 17:25:29 by mosakura          #+#    #+#             */
-/*   Updated: 2026/05/14 13:45:15 by mosakura         ###   ########.fr       */
+/*   Created: 2026/05/14 13:12:26 by mosakura          #+#    #+#             */
+/*   Updated: 2026/05/14 13:55:59 by mosakura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <stdbool.h>
+#include <stdlib.h>
 
-int main(int argc, char **argv)
+static inline bool is_digit(char c)
 {
-    if (argc == 5)
-    {
+    return(c >= '0' && c <= '9');
+}
 
-    }
-    else if (argc == 6)
-    {
+static inline bool is_space(char c)
+{
+    return((c >= 9 && c <= 13) || c == 32);
+}
 
-    }
-    else
-    {
-        error_message("Invalid arguments, follow the example:\n./philosopher 200 800 800 [10]\n");
-        return (1);
-    }
+static const char input_validation(const char *str)
+{
+    size_t      len;
+    const char  *number;
+
+    len = 0;
+    while (is_space(*str))
+        str++;
+    while (str == '+')
+        str++;
+    
 }
