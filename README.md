@@ -41,7 +41,7 @@ This will generate an executable named `philosopher`.
 Run the program with the following syntax:
 
 ```bash
-./philosopher <time_to_die> <time_to_eat> <time_to_sleep> [number_of_times_each_philosopher_must_eat]
+./philo <time_to_die> <time_to_eat> <time_to_sleep> [number_of_times_each_philosopher_must_eat]
 ```
 
 **Arguments:**
@@ -53,7 +53,7 @@ Run the program with the following syntax:
 **Example:**
 
 ```bash
-./philosopher 800 200 200 5
+./philo 800 200 200 5
 ```
 
 This creates a simulation where:

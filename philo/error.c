@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosakura <mosakura@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/12 17:25:29 by mosakura          #+#    #+#             */
+/*   Created: 2026/05/14 16:25:55 by mosakura          #+#    #+#             */
 /*   Updated: 2026/05/14 16:26:55 by mosakura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <stdio.h>
 
-int main(int argc, char **argv)
+
+
+void error_message(char *error)
 {
-    if (argc == 5)
-    {
-
-    }
-    else if (argc == 6)
-    {
-
-    }
-    else
-    {
-        error_message("Invalid arguments, follow the example:\n./philo 200 800 800 [10]\n");
-        return (1);
-    }
+    printf("%s\n", error);
 }

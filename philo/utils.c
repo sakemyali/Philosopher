@@ -6,14 +6,9 @@
 /*   By: mosakura <mosakura@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 17:56:40 by mosakura          #+#    #+#             */
-/*   Updated: 2026/05/14 13:13:58 by mosakura         ###   ########.fr       */
+/*   Updated: 2026/05/14 16:26:55 by mosakura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 #include <stdio.h>
-
-void error_message(char *error)
-{
-    printf("%s\n", error);
-}
