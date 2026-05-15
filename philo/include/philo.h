@@ -6,7 +6,7 @@
 /*   By: mosakura <mosakura@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 17:25:24 by mosakura          #+#    #+#             */
-/*   Updated: 2026/05/15 18:40:53 by mosakura         ###   ########.fr       */
+/*   Updated: 2026/05/15 20:30:34 by mosakura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <sys/time.h> //gettimeofday
 # include <stdbool.h>
 # include <limits.h> //INTMAX
+# include <errno.h> //EINVAL
 
 # define RST  "\033[0m"		/* reset */
 # define BBLK "\033[1;30m"  /* bold black   */
@@ -30,6 +31,17 @@
 # define BMAG "\033[1;35m"  /* bold magenta */
 # define BCYN "\033[1;36m"  /* bold cyan    */
 # define BWHT "\033[1;37m"  /* bold white   */
+
+typedef enum e_opcode
+{
+	LOCK,
+	UNLOCK,
+	INIT,
+	DESTROY,
+	CREATE,
+	JOIN,
+	DETACH,
+}			t_opcode;
 
 typedef struct s_table	t_table;
 
