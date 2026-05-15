@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosakura <mosakura@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/12 17:25:29 by mosakura          #+#    #+#             */
-/*   Updated: 2026/05/15 17:55:57 by mosakura         ###   ########.fr       */
+/*   Created: 2026/05/12 17:56:40 by mosakura          #+#    #+#             */
+/*   Updated: 2026/05/15 18:14:21 by mosakura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/philo.h"
+#include "philo.h"
 
-int main(int argc, char **argv)
+inline bool	is_digit(char c)
 {
-    t_table table;
+    return (c >= '0' && c <= '9');
+}
 
-    if (argc == 5)
-    {
-    }
-    else if (argc == 6)
-    {
-    }
-    else
-    {
-        error_message("Invalid arguments, follow the example:\n"
-                        BGRN"./philo 200 800 800 [10]\n"RST);
-        return (1);
-    }
+inline bool	is_space(char c)
+{
+    return ((c >= 9 && c <= 13) || c == 32);
 }
