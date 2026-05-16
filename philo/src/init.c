@@ -6,14 +6,32 @@
 /*   By: mosakura <mosakura@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 16:07:21 by mosakura          #+#    #+#             */
-/*   Updated: 2026/05/15 23:13:17 by mosakura         ###   ########.fr       */
+/*   Updated: 2026/05/16 21:21:09 by mosakura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 #include <stdlib.h>
 
-static void philo_init(t_table *table)
+static void	assign_fork(t_philo *philo, t_fork *forks, int position)
+{
+	int	philo_n;
+
+	philo_n = philo->table->philo_n;
+	if (!(philo->id % 2))
+	{
+		philo->fork1 = &forks[(position + 1) % philo_n];
+		philo->fork2 = &forks[position];
+	}
+	else if (philo->id % 2)
+	{
+		philo->fork1 = &forks[position];
+		philo->fork2 = &forks[(position + 1) % philo_n];
+	}
+
+}
+
+static void	philo_init(t_table *table)
 {
 	size_t	i;
 	t_philo *philo;
@@ -27,7 +45,7 @@ static void philo_init(t_table *table)
 		philo->meals_counter = 0;
 		philo->table = table;
 
-		
+
 	}
 }
 

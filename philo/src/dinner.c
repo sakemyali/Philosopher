@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   dinner.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosakura <mosakura@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/12 17:25:29 by mosakura          #+#    #+#             */
-/*   Updated: 2026/05/16 22:42:57 by mosakura         ###   ########.fr       */
+/*   Created: 2026/05/16 21:43:53 by mosakura          #+#    #+#             */
+/*   Updated: 2026/05/16 22:42:43 by mosakura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/philo.h"
+#include "philo.h"
 
-int main(int argc, char **argv)
+void	start_dinner(t_table *table)
 {
-    t_table table;
+	size_t	i;
 
-    if (argc == 5 || argc == 6)
-    {
-        parse_input(&table, argv);
-        data_init(&table);
+	i = 0;
+	if (table->n_limit_meals == 0)
+		return ;
+	else if (table->philo_n == 1)
+	{
 
-    }
-    else
-    {
-        error_message("Invalid arguments, follow the example:\n"
-                        BGRN"./philo 200 800 800 [10]\n"RST);
-        return (1);
-    }
+	}
+	else
+	{
+		while (i++ < table->philo_n)
+			ft_thread(&table->philos[i].thread_id, simulation(),
+				&table->philos[i], CREATE);
+	}
+}
+
+void simulation(void *data)
+{
+	t_philo *philo;
+
+	philo = (t_philo *)data;
+
 }

@@ -6,7 +6,7 @@
 /*   By: mosakura <mosakura@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 17:25:24 by mosakura          #+#    #+#             */
-/*   Updated: 2026/05/15 22:45:53 by mosakura         ###   ########.fr       */
+/*   Updated: 2026/05/16 22:30:53 by mosakura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ typedef struct s_philo
 	long		meals_counter;
 	bool		full;
 	long		last_meal_time;
-	t_fork		*left_fork;
-	t_fork		*right_fork;
+	t_fork		*fork1;
+	t_fork		*fork2;
 	pthread_t	thread_id;
 	t_table		*table;
 }				t_philo;
@@ -84,5 +84,7 @@ long		ft_atol(const char *str);
 void	mutex_error(int status, t_opcode opcode);
 void	ft_thread(pthread_t *thread, void *(*foo)(void *), void *data, t_opcode opcode);
 void	ft_mutex(pthread_mutex_t *mutex, t_opcode opcode);
+void    parse_input(t_table *table, char **argv);
+void	data_init(t_table *table);
 
 #endif
