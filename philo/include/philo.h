@@ -6,7 +6,7 @@
 /*   By: mosakura <mosakura@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 17:25:24 by mosakura          #+#    #+#             */
-/*   Updated: 2026/05/15 20:30:34 by mosakura         ###   ########.fr       */
+/*   Updated: 2026/05/15 22:45:53 by mosakura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ struct s_table
 	long	time_to_sleep;
 	long	n_limit_meals;
 	long	start_simulation;
-	bool	end_simulatiosn;
+	bool	end_simulation;
 	t_fork	*forks;
 	t_philo	*philos;
 };
@@ -81,6 +81,8 @@ const char	input_validation(const char *str);
 inline bool		is_space(char c);
 inline bool		is_digit(char c);
 long		ft_atol(const char *str);
-
+void	mutex_error(int status, t_opcode opcode);
+void	ft_thread(pthread_t *thread, void *(*foo)(void *), void *data, t_opcode opcode);
+void	ft_mutex(pthread_mutex_t *mutex, t_opcode opcode);
 
 #endif
