@@ -6,7 +6,7 @@
 /*   By: mosakura <mosakura@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/16 21:43:53 by mosakura          #+#    #+#             */
-/*   Updated: 2026/05/16 22:42:43 by mosakura         ###   ########.fr       */
+/*   Updated: 2026/05/16 23:46:51 by mosakura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,8 @@ void simulation(void *data)
 
 	philo = (t_philo *)data;
 
+	wait_all_threads(philo->table);
+
+	
+	return ;
 }

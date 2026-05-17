@@ -6,7 +6,7 @@
 /*   By: mosakura <mosakura@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 17:25:24 by mosakura          #+#    #+#             */
-/*   Updated: 2026/05/16 22:30:53 by mosakura         ###   ########.fr       */
+/*   Updated: 2026/05/16 23:46:49 by mosakura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,15 +65,17 @@ typedef struct s_philo
 
 struct s_table
 {
-	long	philo_n;
-	long	time_to_die;
-	long	time_to_eat;
-	long	time_to_sleep;
-	long	n_limit_meals;
-	long	start_simulation;
-	bool	end_simulation;
-	t_fork	*forks;
-	t_philo	*philos;
+	long			philo_n;
+	long			time_to_die;
+	long			time_to_eat;
+	long			time_to_sleep;
+	long			n_limit_meals;
+	long			start_simulation;
+	bool			end_simulation;
+	bool			all_threads_ready;
+	pthread_mutex_t	table_mutex;
+	t_fork			*forks;
+	t_philo			*philos;
 };
 
 void		error_message(char *error);
