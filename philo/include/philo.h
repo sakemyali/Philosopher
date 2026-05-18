@@ -6,7 +6,7 @@
 /*   By: mosakura <mosakura@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 17:25:24 by mosakura          #+#    #+#             */
-/*   Updated: 2026/05/16 23:46:49 by mosakura         ###   ########.fr       */
+/*   Updated: 2026/05/18 17:44:29 by mosakura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,23 @@ typedef enum e_opcode
 	DETACH,
 }			t_opcode;
 
+typedef enum e_time_code
+{
+	SECOND,
+	MILLISECOND,
+	MICROSECOND,
+}			t_time_code;
+
+typedef enum e_philo_status
+{
+	EATING,
+	SLEEPING,
+	THINKING,
+	TAKE_FIRST_FORK,
+	TAKE_SECOND_FORK,
+	DIED,
+}			t_philo_status;
+
 typedef struct s_table	t_table;
 
 typedef struct s_fork
@@ -74,6 +91,7 @@ struct s_table
 	bool			end_simulation;
 	bool			all_threads_ready;
 	pthread_mutex_t	table_mutex;
+	pthread_mutex_t	write_mutex;
 	t_fork			*forks;
 	t_philo			*philos;
 };
@@ -83,10 +101,18 @@ const char	input_validation(const char *str);
 inline bool		is_space(char c);
 inline bool		is_digit(char c);
 long		ft_atol(const char *str);
-void	mutex_error(int status, t_opcode opcode);
-void	ft_thread(pthread_t *thread, void *(*foo)(void *), void *data, t_opcode opcode);
-void	ft_mutex(pthread_mutex_t *mutex, t_opcode opcode);
-void    parse_input(t_table *table, char **argv);
-void	data_init(t_table *table);
+void		mutex_error(int status, t_opcode opcode);
+void		ft_thread(pthread_t *thread, void *(*foo)(void *), void *data,
+				t_opcode opcode);
+void		ft_mutex(pthread_mutex_t *mutex, t_opcode opcode);
+void		parse_input(t_table *table, char **argv);
+void		data_init(t_table *table);
+void		set_bool(pthread_mutex_t *mutex, bool *dst, bool value);
+bool		get_bool(pthread_mutex_t *mutex, bool *value);
+long		get_long(pthread_mutex_t *mutex, long *value);
+void		set_long(pthread_mutex_t *mutex, long *dst, long value);
+bool		simulation_end(t_table *table);
+void		spin_lock(t_table *table);
+long		get_time(t_time_code time_code);
 
 #endif

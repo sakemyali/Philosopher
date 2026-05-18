@@ -6,7 +6,7 @@
 /*   By: mosakura <mosakura@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 16:07:21 by mosakura          #+#    #+#             */
-/*   Updated: 2026/05/16 23:47:30 by mosakura         ###   ########.fr       */
+/*   Updated: 2026/05/18 17:37:41 by mosakura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ void	data_init(t_table *table)
 	table->end_simulation = false;
 	table->all_threads_ready = false;
 	table->philos = (t_philo *)malloc(sizeof(t_philo) * table->philo_n);
-	ft_mutex(table->table_mutex, INIT);
+	ft_mutex(&table->table_mutex, INIT);
+	ft_mutex(&table->write_mutex, INIT);
 	table->forks = (t_fork *)malloc(sizeof(t_fork) * table->philo_n);
 	while (i++ < table->philo_n)
 	{
